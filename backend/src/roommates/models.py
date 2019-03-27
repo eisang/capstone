@@ -15,7 +15,7 @@ from django.db import models
 
 class Roommate(models.Model):
     name = models.CharField(max_length=255)
-    favorite_quote = models.TextField()
+    favourite_quote = models.TextField()
     picture_url = models.CharField(max_length=2083, default="")
     email = models.EmailField(max_length=254)
     password = models.CharField(max_length=100, default="")
@@ -28,6 +28,7 @@ class Crew (models.Model):
 
 
 class Task(models.Model):
+    # id = models.IntegerField(primary_key=True)
     task_name = models.CharField(max_length=255)
     is_task_completed = models.BooleanField()
     task_location = models.CharField(max_length=255)
@@ -41,6 +42,7 @@ class Task(models.Model):
 
 
 class Event(models.Model):
+    # id = models.IntegerField(primary_key=True)
     # roommate_name = models.CharField(max_length=255)
     # message = models.CharField(max_length=2083)
     event_theme = models.CharField(max_length=255)
@@ -60,14 +62,14 @@ class Bill(models.Model):
     bill_amount = models.DecimalField(decimal_places=2, max_digits=1000)
 
 
-class EventAssigned(models.Model):
-    roommate = models.ForeignKey(Roommate, on_delete=models.CASCADE)
+class Designated(models.Model):
+    # roommate = models.ForeignKey(Roommate, on_delete=models.CASCADE)
+    # task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    # task_name = models.CharField(max_length=255)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-
-
-class TaskAssigned(models.Model):
-    roommate = models.ForeignKey(Roommate, on_delete=models.CASCADE)
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    # task_id = models.ForeignKey(Task, on_delete=models.CASCADE)
+    roommate = models.ForeignKey(Roommate, on_delete=models.CASCADE)
 
 
 class Message(models.Model):

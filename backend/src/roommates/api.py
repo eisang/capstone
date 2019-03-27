@@ -1,9 +1,9 @@
 
-from roommates.models import Roommate, Bill, Event, Task, TaskAssigned, EventAssigned, Crew, Message
+from roommates.models import Roommate, Bill, Event, Task, Designated, Crew, Message
 
 from rest_framework import viewsets, permissions
 
-from .serializers import RoommateSerializer, EventSerializer, TaskSerializer, BillSerializer, EventAssignedSerializer, MessageSerializer, TaskAssignedSerializer, CrewSerializer
+from .serializers import RoommateSerializer, EventSerializer, TaskSerializer, BillSerializer, DesignatedSerializer, MessageSerializer, CrewSerializer
 
 
 class RoommateViewSet(viewsets.ModelViewSet):
@@ -49,20 +49,20 @@ class BillViewSet(viewsets.ModelViewSet):
     serializer_class = BillSerializer
 
 
-class EventAssignedViewSet(viewsets.ModelViewSet):
-    queryset = EventAssigned.objects.all()
+class DesignatedViewSet(viewsets.ModelViewSet):
+    queryset = Designated.objects.all()
     permission_class = [
         permissions.AllowAny
     ]
-    serializer_class = EventAssignedSerializer
+    serializer_class = DesignatedSerializer
 
 
-class TaskAssignedViewSet(viewsets.ModelViewSet):
-    queryset = TaskAssigned.objects.all()
-    permission_class = [
-        permissions.AllowAny
-    ]
-    serializer_class = TaskAssignedSerializer
+# class TaskAssignedViewSet(viewsets.ModelViewSet):
+#     queryset = TaskAssigned.objects.all()
+#     permission_class = [
+#         permissions.AllowAny
+#     ]
+#     serializer_class = TaskAssignedSerializer
 
 
 class MessageViewSet(viewsets.ModelViewSet):

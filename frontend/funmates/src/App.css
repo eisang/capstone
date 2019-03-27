@@ -31,3 +31,9 @@
     transform: rotate(360deg);
   }
 } */
+
+* {
+  /* font-family: "Caveat", cursive; */
+  /* font-family: "Nanum Myeongjo", serif; */
+  font-family: "Open Sans Condensed", sans-serif;
+}

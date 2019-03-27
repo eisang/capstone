@@ -72,7 +72,7 @@ const Roommate = props => {
   return (
     <div style={{ marginTop: "30px" }}>
       <ul className="demo-list-icon mdl-list">
-        <li className="mdl-list__item">
+        {/* <li className="mdl-list__item">
           <span className="mdl-list__item-primary-content">
             <i className="material-icons mdl-list__item-icon">person</i>
             Bryan Cranston
@@ -88,17 +88,18 @@ const Roommate = props => {
           <span className="mdl-list__item-primary-content">
             <i className="material-icons mdl-list__item-icon">person</i>
             Bob Odenkirk
-          </span>
-        </li>
+          </span> */}
+        {/* </li> */}
         <li className="mdl-list__item" key={props.roommate.id}>
           <span className="mdl-list__item-primary-content">
             <i className="material-icons mdl-list__item-icon">person</i>
             <p>{props.roommate.name}</p>
           </span>
           <span className="mdl-list__item-primary-content">
-            <i className="material-icons mdl-list__item-icon">person</i>
-            <p>{props.roommate.favorite_quote}</p>
+            {/* <i className="material-icons mdl-list__item-icon">person</i> */}
+            {/* <p>{props.roommate.favourite_quote}</p> */}
           </span>
+          <p>{props.roommate.favourite_quote}</p>
           {/* <p>{props.roommate.name}</p>
           <p>{props.roommate.favorite_quote}</p> */}
         </li>

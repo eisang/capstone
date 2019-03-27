@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Roommate from "./Roommate";
 import axios from "axios";
+// import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 // const listData = [];
 // for (let i = 0; i < 5; i++) {
@@ -31,6 +32,7 @@ export default class RoommateList extends Component {
 
   render() {
     return (
+      // <ReactCSSTransitionGroup
       <div>
         {this.state.roommates.map(roommate => {
           return <Roommate key={roommate.id} roommate={roommate} />;

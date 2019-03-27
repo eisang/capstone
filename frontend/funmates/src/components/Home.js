@@ -33,20 +33,11 @@
 // }
 
 import React, { Component } from "react";
-import {
-  // Row,
-  // Col,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Button
-} from "reactstrap";
-// import "bootswatch/dist/Minty/bootstrap.min.css";
+import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 
 class Home extends Component {
   onSubmit = () => {
-    this.props.history.push("/chat");
+    this.props.history.push("/roommates");
   };
 
   render() {

@@ -6,11 +6,11 @@
 
 # Register your models here.
 from django.contrib import admin
-from .models import Roommate, Event, Task, Bill, TaskAssigned, EventAssigned, Crew, Message
+from .models import Roommate, Event, Task, Bill, Designated, Crew, Message
 
 
 class RoommateAdmin(admin.ModelAdmin):
-    list_display = ('name', 'favorite_quote', 'picture_url',
+    list_display = ('name', 'favourite_quote', 'picture_url',
                     'email', 'password')
 
 
@@ -35,16 +35,16 @@ class CrewAdmin(admin.ModelAdmin):
     list_display = ('name', 'roommate')
 
 
-class TaskAssignedAdmin(admin.ModelAdmin):
-    list_display = ('roommate', 'task')
+class DesignatedAdmin(admin.ModelAdmin):
+    list_display = ('task', 'event', 'roommate',)
 
 
-class EventAssignedAdmin(admin.ModelAdmin):
-    list_display = ('roommate', 'event')
+# class EventAssignedAdmin(admin.ModelAdmin):
+#     list_display = ('event_id', 'roommate')
 
 
-admin.site.register(TaskAssigned, TaskAssignedAdmin)
-admin.site.register(EventAssigned, EventAssignedAdmin)
+admin.site.register(Designated, DesignatedAdmin)
+# admin.site.register(EventAssigned, EventAssignedAdmin)
 admin.site.register(Crew, CrewAdmin)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Task, TaskAdmin)

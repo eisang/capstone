@@ -20,7 +20,7 @@ class EventAdmin(admin.ModelAdmin):
 
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('task_name',
-                    'is_task_completed', 'task_location', 'date_to_complete', 'owner')
+                    'task_location', 'date_to_complete', 'owner')
 
 
 class BillAdmin(admin.ModelAdmin):

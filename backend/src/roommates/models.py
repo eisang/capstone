@@ -9,6 +9,7 @@
 
 
 from django.db import models
+from django.contrib.auth.models import User
 # from django.utils import timezone
 # from datetime import date
 
@@ -33,6 +34,9 @@ class Task(models.Model):
     is_task_completed = models.BooleanField()
     task_location = models.CharField(max_length=255)
     date_to_complete = models.DateField(auto_now=False, auto_now_add=False)
+    owner = models.ForeignKey(
+        User, related_name="tasks", on_delete=models.CASCADE, null=True)
+
     # date_to_complete = models.DateField()
     # date_to_complete = models.DateField(default=0,  blank=True, null=True)
 
@@ -48,6 +52,9 @@ class Event(models.Model):
     event_theme = models.CharField(max_length=255)
     # event_location = models.CharField(max_length=255)
     event_date = models.DateField(auto_now=False, auto_now_add=False)
+    owner = models.ForeignKey(
+        User, related_name="events", on_delete=models.CASCADE, null=True)
+
     # event_date = models.DateField()
     # event_date = models.DateField(default=0 null)
     # event_date = models.DateField(default=timezone.now, null=True)

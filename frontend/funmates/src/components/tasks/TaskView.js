@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import TasksForm from "./TasksForm";
 import TasksList from "./TasksList";
 import { Container, Row, Col } from "reactstrap";
 
 export default function TaskView() {
   return (
-    <Fragment>
+    <div>
       <Container>
         <Row>
           <Col xs="5">
@@ -16,6 +16,6 @@ export default function TaskView() {
           </Col>
         </Row>
       </Container>
-    </Fragment>
+    </div>
   );
 }

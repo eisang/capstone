@@ -15,12 +15,12 @@ class RoommateAdmin(admin.ModelAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('event_theme', 'event_date')
+    list_display = ('event_theme', 'event_date', 'owner')
 
 
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('task_name',
-                    'is_task_completed', 'task_location', 'date_to_complete')
+                    'is_task_completed', 'task_location', 'date_to_complete', 'owner')
 
 
 class BillAdmin(admin.ModelAdmin):

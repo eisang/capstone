@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import EventsForm from "./EventsForm";
 import EventsList from "./EventsList";
 import { Container, Row, Col } from "reactstrap";
 
 export default function EventView() {
   return (
-    <Fragment>
+    <div>
       <Container>
         <Row>
           <Col xs="6">
@@ -20,6 +20,6 @@ export default function EventView() {
       <EventsList /> */}
         </Row>
       </Container>
-    </Fragment>
+    </div>
   );
 }

@@ -1,29 +1,24 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import RoommateList from "./RoommateList";
-import RoommateDetails from "./RoommateDetails";
-// import EventList from "./EventList";
-// import EventDetails from "./EventDetails";
 import EventView from "./events/EventView";
 import TaskView from "./tasks/TaskView";
-import BillView from "./bills/BillView";
-import Home from "./Home";
-// import HeadNavbar from "./components/HeadNavbar";
+import UtilityRoute from "./utilities/UtilityRoute";
+import Login from "./Login";
+import Register from "./Register";
+import EventEditForm from "./EventEditForm";
 
 const BaseRouter = () => {
   return (
     <div>
-      <Route path="/" exact component={Home} />
-      <Route path="/roommates" exact component={RoommateList} />
-      <Route path="/roommates/:userID" exact component={RoommateDetails} />
-      {/* <Route path="/events" exact component={EventList} /> */}
-      <Route path="/events" exact component={EventView} />
-      <Route path="/events/:id" exact component={EventView} />
-      <Route path="/tasks" exact component={TaskView} />
-      <Route path="/tasks/:id" exact component={TaskView} />
-      <Route path="/bills" exact component={BillView} />
-
-      {/* <Route path="/events/:userID" exact component={EventDetails} /> */}
+      <div>
+        <UtilityRoute path="/" exact component={EventView} />
+      </div>
+      <div>
+        <UtilityRoute path="/" exact component={TaskView} />
+      </div>
+      <UtilityRoute path="/events/:id/edit" exact component={EventEditForm} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/register" exact component={Register} />
     </div>
   );
 };

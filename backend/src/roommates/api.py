@@ -10,6 +10,7 @@ class RoommateViewSet(viewsets.ModelViewSet):
     queryset = Roommate.objects.all()
     permission_class = [
         permissions.AllowAny
+        #  permissions.IsAuthenticated
     ]
     serializer_class = RoommateSerializer
 
@@ -25,19 +26,40 @@ class CrewViewSet(viewsets.ModelViewSet):
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     permission_class = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
+        # permissions.AllowAny
     ]
-
     serializer_class = EventSerializer
+
+
+def get_queryset(self):
+    return self.request.user.events.all()
+
+
+def perform_create(self, serializer):
+    serializer.save(owner=self.request.user)
+
+    # serializer_class = EventSerializer
 
 
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     permission_class = [
-        permissions.AllowAny
-    ]
+        # permissions.AllowAny
+        permissions.IsAuthenticated
 
+    ]
     serializer_class = TaskSerializer
+
+
+def get_queryset(self):
+    return self.request.user.tasks.all()
+
+
+def perform_create(self, serializer):
+    serializer.save(owner=self.request.user)
+
+    # serializer_class = TaskSerializer
 
 
 class BillViewSet(viewsets.ModelViewSet):

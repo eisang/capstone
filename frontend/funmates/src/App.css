@@ -35,5 +35,7 @@
 * {
   /* font-family: "Caveat", cursive; */
   /* font-family: "Nanum Myeongjo", serif; */
-  font-family: "Open Sans Condensed", sans-serif;
+  /* font-family: "Open Sans Condensed", sans-serif; */
+  font-family: "Caveat", cursive;
+  overflow: hidden;
 }

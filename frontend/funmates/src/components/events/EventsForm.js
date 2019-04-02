@@ -255,14 +255,16 @@ class EventsForm extends Component {
         >
           {styles => (
             <nav className={clsName}>
+              {/* <div className="col-sm-6 "> */}
+              {/* <div className="card card-body mt-4" /> */}
               <Form
                 onSubmit={this.onSubmit}
                 body
                 style={{
                   transform: `translateX(${styles[1].x}px)`,
                   width: "200px",
-                  marginTop: "60px",
-                  marginBottom: "60px"
+                  marginTop: "10px",
+                  marginBottom: "10px"
                 }}
               >
                 {/* onSubmit={this.onSubmit} */}{" "}
@@ -286,8 +288,12 @@ class EventsForm extends Component {
                     placeholder="enter the date"
                   />
                 </FormGroup>
-                <Button type="secondary">submit</Button>
+                <Button className="btn-sm" type="secondary">
+                  submit
+                </Button>
               </Form>
+              {/* </div> */}
+              {/* </div> */}
             </nav>
           )}
         </StaggeredMotion>

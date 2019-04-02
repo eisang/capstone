@@ -1,8 +1,14 @@
 // import { GET_EVENTS, DELETE_EVENT, ADD_EVENT} from "../actions/types.js";
-import { GET_EVENTS, DELETE_EVENT, ADD_EVENT } from "../actions/actionTypes";
+import {
+  GET_EVENTS,
+  DELETE_EVENT,
+  ADD_EVENT,
+  UPDATE_EVENT
+} from "../actions/actionTypes";
 
 const initialState = {
-  events: []
+  events: [],
+  editEvent: {}
 };
 
 export default function(state = initialState, action) {
@@ -22,6 +28,22 @@ export default function(state = initialState, action) {
         ...state,
         events: [...state.events, action.payload]
       };
+
+    case UPDATE_EVENT:
+      return {
+        ...state,
+        // events: state.events.map(event => event.id === action.payload)
+        editEvent: action.payload
+      };
+
+    // case UPDATE_EVENT:
+    //   return state.map(event => {
+    //     if (event.id === action.id) {
+    //       return {
+    //         ...state
+    //       };
+    //     } else return event;
+    //   });
 
     default:
       return state;

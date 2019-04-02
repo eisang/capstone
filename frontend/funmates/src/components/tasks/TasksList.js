@@ -20,9 +20,9 @@ export class TasksList extends Component {
         <Table
           style={{
             // transform: `translateX(${styles[1].x}px)`,
-            width: "300px",
-            marginTop: "70px",
-            marginRight: "350px"
+            width: "500px",
+            marginTop: "10px",
+            marginRight: "300px"
             // marginBottom: "190px"
           }}
         >
@@ -44,12 +44,23 @@ export class TasksList extends Component {
                 <td>{task.task_location}</td>
                 <td>{task.date_to_complete}</td>
                 <td>
-                  <Button
-                    onClick={this.props.deleteTask.bind(this, task.id)}
-                    className="btn btn danger btn-sm"
-                  >
-                    delete
-                  </Button>
+                  <span style={{ margin: "4px" }}>
+                    <Button
+                      onClick={this.props.deleteTask.bind(this, task.id)}
+                      className="btn btn secondary btn-sm"
+                    >
+                      delete
+                    </Button>
+                  </span>
+
+                  <span style={{ margin: "4px" }}>
+                    <Button
+                      onClick={this.props.deleteTask.bind(this, task.id)}
+                      className="btn btn secondary btn-sm"
+                    >
+                      edit
+                    </Button>
+                  </span>
                 </td>
               </tr>
             ))}

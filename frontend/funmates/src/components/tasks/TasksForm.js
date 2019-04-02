@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import { connect } from "react-redux";
 import { addTask } from "../actions/tasks";
+import { StaggeredMotion, spring } from "react-motion";
 
 export class TaskForms extends Component {
   state = {
@@ -57,70 +58,93 @@ export class TaskForms extends Component {
       task_location,
       date_to_complete
     } = this.state;
+
+    let clsName = "nav-container";
+    if (this.props.show) {
+      clsName = "nav-container open";
+    }
+
     return (
-      <div>
+      <div className="container">
         {/* <p>Add tasks</p> */}
-        <Form
-          onSubmit={this.onSubmit}
-          style={{
-            // marginLeft: "10px",
-            marginRight: "350px",
-            width: "150px",
-            marginTop: "90px"
-          }}
+
+        <StaggeredMotion
+          defaultStyles={[{ x: -1250 }, { x: -250 }, { x: -250 }, { x: -200 }]}
+          styles={prevStyles => [
+            { x: spring(0) },
+            { x: spring(prevStyles[0].x) },
+            { x: spring(prevStyles[1].x) },
+            { x: spring(prevStyles[2].x) }
+          ]}
         >
-          <FormGroup>
-            <Label for="exampleTheme">Task name</Label>
-            <Input
-              type="text"
-              onChange={this.onChange}
-              name="task_name"
-              value={task_name}
-              placeholder="enter your the theme"
-            />
-          </FormGroup>
-          <FormGroup>
-            {/* <Label for="exampleDate">status </Label> */}
-            <Input
-              style={{ marginLeft: 5 }}
-              type="checkbox"
-              // checked={this.state.is_task_completed}
-              name="is_task_completed"
-              value={is_task_completed}
-              onChange={this.onChange}
-              id="is_task_completed"
-              placeholder="enter the status"
-            />
-            <Label for="exampleDate" style={{ marginLeft: 25 }}>
-              status{" "}
-            </Label>
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleCheck" check>
-              location
-            </Label>
-            <Input
-              type="text"
-              name="task_location"
-              value={task_location}
-              onChange={this.onChange}
-              placeholder="enter the location"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleDate">date to complete</Label>
-            <Input
-              type="date"
-              name="date_to_complete"
-              value={date_to_complete}
-              onChange={this.onChange}
-              placeholder="enter the date"
-            />
-          </FormGroup>
-          <Button type="secondary" htmltype="submit">
-            submit
-          </Button>
-        </Form>
+          {styles => (
+            <nav className={clsName}>
+              <Form
+                onSubmit={this.onSubmit}
+                body
+                style={{
+                  transform: `translateX(${styles[1].x}px)`,
+                  width: "200px",
+                  marginTop: "60px",
+                  marginBottom: "60px"
+                }}
+              >
+                {/* onSubmit={this.onSubmit} */}{" "}
+                <FormGroup>
+                  <Label for="exampleTheme">Task name</Label>
+                  <Input
+                    type="text"
+                    onChange={this.onChange}
+                    name="task_name"
+                    value={task_name}
+                    placeholder="enter your the theme"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  {/* <Label for="exampleDate">status </Label> */}
+                  <Input
+                    style={{ marginLeft: 5 }}
+                    type="checkbox"
+                    // checked={this.state.is_task_completed}
+                    name="is_task_completed"
+                    value={is_task_completed}
+                    onChange={this.onChange}
+                    id="is_task_completed"
+                    placeholder="enter the status"
+                  />
+                  <Label for="exampleDate" style={{ marginLeft: 25 }}>
+                    status{" "}
+                  </Label>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleCheck" check>
+                    location
+                  </Label>
+                  <Input
+                    type="text"
+                    name="task_location"
+                    value={task_location}
+                    onChange={this.onChange}
+                    placeholder="enter the location"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleDate">date to complete</Label>
+                  <Input
+                    type="date"
+                    name="date_to_complete"
+                    value={date_to_complete}
+                    onChange={this.onChange}
+                    placeholder="enter the date"
+                  />
+                </FormGroup>
+                <Button className="btn-sm" type="secondary" htmltype="submit">
+                  submit
+                </Button>
+              </Form>
+            </nav>
+          )}
+        </StaggeredMotion>
       </div>
     );
   }

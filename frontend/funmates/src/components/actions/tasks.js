@@ -46,6 +46,7 @@ export const addTask = task => dispatch => {
 };
 
 export const updateTask = (id, task) => dispatch => {
+  console.log("update task", task);
   console.log("id", id);
   axios
     .put(`http://127.0.0.1:8000/api/tasks/${id}/`, task)

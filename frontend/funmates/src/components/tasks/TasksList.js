@@ -55,7 +55,7 @@ export class TasksList extends Component {
                   {this.props.tasks.map(task => (
                     <tr key={task.id}>
                       <td>{task.task_name}</td>
-                      <td>{"" + task.is_task_completed}</td>
+                      {/* <td>{"" + task.is_task_completed}</td> */}
                       <td>{task.task_location}</td>
                       <td>{task.date_to_complete}</td>
                       <td>

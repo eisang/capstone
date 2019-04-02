@@ -24,7 +24,6 @@ export class Register extends Component {
       email
     };
     this.props.register(newRoommate);
-    // }
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-// import PropTypes from "prop-types";
+
 import { Spin, Icon } from "antd";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;

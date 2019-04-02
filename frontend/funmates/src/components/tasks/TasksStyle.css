@@ -34,6 +34,7 @@
   transition: all 0.2s linear 0.4s;
 } */
 
-.exe {
-  justify-content: flex-end;
+.exe2 {
+  /* display: flex; */
+  justify-content: flex-start;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import EventsForm from "./EventsForm";
 import EventsList from "./EventsList";
 import { Container, Row, Col } from "reactstrap";
+import "./EventsStyle.css";
 
 export default function EventView() {
   return (
@@ -11,13 +12,9 @@ export default function EventView() {
           <Col xs="6">
             <EventsForm />
           </Col>
-          <Col xs="6">
+          <Col className="exe" xs="6" style={{ display: "flex" }}>
             <EventsList />
           </Col>
-
-          {/* <EventsForm />
-    
-      <EventsList /> */}
         </Row>
       </Container>
     </div>

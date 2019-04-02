@@ -7,54 +7,41 @@ import { StaggeredMotion, spring } from "react-motion";
 export class TaskForms extends Component {
   state = {
     task_name: "",
-    is_task_completed: "",
+    // is_task_completed: "",
     task_location: "",
     date_to_complete: ""
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  // handleChange(event) {
-  //   const { name, value, type, checked } = event.target;
-  //   type === "checkbox"
-  //     ? this.setState({ [name]: checked })
-  //     : this.setState({ [name]: value });
-  // }
-
   onSubmit = e => {
     e.preventDefault();
 
     const {
       task_name,
-      is_task_completed,
+      // is_task_completed,
       task_location,
       date_to_complete
     } = this.state;
     const task = {
       task_name,
-      is_task_completed,
+      // is_task_completed,
       task_location,
       date_to_complete
     };
     this.props.addTask(task);
     this.setState({
       task_name: "",
-      is_task_completed: "",
+      // is_task_completed: "",
       task_location: "",
       date_to_complete: ""
     });
-    // let data = this.state;
-    // if (data[is_task_completed] === "true") {
-    //   data["_task_completed"] = true;
-    // } else {
-    //   data["is_task_completed"] = false;
-    // }
   };
 
   render() {
     const {
       task_name,
-      is_task_completed,
+      // is_task_completed,
       task_location,
       date_to_complete
     } = this.state;
@@ -66,8 +53,6 @@ export class TaskForms extends Component {
 
     return (
       <div className="container">
-        {/* <p>Add tasks</p> */}
-
         <StaggeredMotion
           defaultStyles={[{ x: -1250 }, { x: -250 }, { x: -250 }, { x: -200 }]}
           styles={prevStyles => [
@@ -83,63 +68,49 @@ export class TaskForms extends Component {
                 onSubmit={this.onSubmit}
                 body
                 style={{
-                  transform: `translateX(${styles[1].x}px)`,
+                  transform: `translateX(${styles[3].x}px)`,
                   width: "200px",
-                  marginTop: "60px",
+                  marginTop: "40px",
                   marginBottom: "60px"
                 }}
               >
-                {/* onSubmit={this.onSubmit} */}{" "}
                 <FormGroup>
-                  <Label for="exampleTheme">Task name</Label>
+                  <Label for="exampleTheme">Task</Label>
                   <Input
                     type="text"
                     onChange={this.onChange}
                     name="task_name"
                     value={task_name}
-                    placeholder="enter your the theme"
+                    style={{ fontSize: "10px", marginTop: "-9px" }}
+                    placeholder="Enter your the theme"
                   />
-                </FormGroup>
-                <FormGroup>
-                  {/* <Label for="exampleDate">status </Label> */}
-                  <Input
-                    style={{ marginLeft: 5 }}
-                    type="checkbox"
-                    // checked={this.state.is_task_completed}
-                    name="is_task_completed"
-                    value={is_task_completed}
-                    onChange={this.onChange}
-                    id="is_task_completed"
-                    placeholder="enter the status"
-                  />
-                  <Label for="exampleDate" style={{ marginLeft: 25 }}>
-                    status{" "}
-                  </Label>
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleCheck" check>
-                    location
+                    Location
                   </Label>
                   <Input
                     type="text"
                     name="task_location"
                     value={task_location}
                     onChange={this.onChange}
-                    placeholder="enter the location"
+                    style={{ fontSize: "10px", marginTop: "-4px" }}
+                    placeholder="Enter the location"
                   />
                 </FormGroup>
                 <FormGroup>
-                  <Label for="exampleDate">date to complete</Label>
+                  <Label for="exampleDate">Completed</Label>
                   <Input
                     type="date"
                     name="date_to_complete"
                     value={date_to_complete}
                     onChange={this.onChange}
-                    placeholder="enter the date"
+                    style={{ fontSize: "10px", marginTop: "-9px" }}
+                    placeholder="Enter the date"
                   />
                 </FormGroup>
                 <Button className="btn-sm" type="secondary" htmltype="submit">
-                  submit
+                  Submit
                 </Button>
               </Form>
             </nav>

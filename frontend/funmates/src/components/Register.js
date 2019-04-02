@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-// import PropTypes from "prop-types";
 import { register } from "./actions/auth";
 import { errorMessages } from "./actions/errors";
 import { Button } from "reactstrap";
@@ -14,17 +13,10 @@ export class Register extends Component {
     password2: ""
   };
 
-  //   static propTypes = {
-  //     register: PropTypes.func.isRequired,
-  //     isAuthenticated: PropTypes.bool
-  //   };
-
   onSubmit = e => {
     e.preventDefault();
     const { username, email, password, password2 } = this.state;
-    // if (password !== password2) {
-    //   this.props.errorMessages({ passwordNotMatch: "Passwords do not match" });
-    // } else {
+
     const newRoommate = {
       username,
       password,
@@ -45,9 +37,6 @@ export class Register extends Component {
     return (
       <div style={{ marginTop: "40px" }} className="col-md-4 m-auto">
         <div>
-          {/* <p className="text-center" style={{ marginTop: "30px" }}>
-            Register
-          </p> */}
           <form style={{ marginTop: "30px" }} onSubmit={this.onSubmit}>
             <div className="form-group">
               <label>Username</label>

@@ -50,8 +50,8 @@ export const addEvent = event => dispatch => {
 
 export const updateEvent = (id, event) => dispatch => {
   console.log("update event", event);
+  console.log("id", id);
   axios
-
     .put(`http://127.0.0.1:8000/api/events/${id}/`, event)
     .then(res => {
       dispatch({

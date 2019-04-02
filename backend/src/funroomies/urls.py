@@ -29,11 +29,6 @@ urlpatterns = [
 
 
 
-    # path('task', include('task.urls')),
-
-    # path('event', include('event.urls')),
-
-    # path('bill', include('bil.urls')),
 
 
 

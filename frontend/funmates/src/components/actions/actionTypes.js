@@ -6,10 +6,7 @@ export const UPDATE_EVENT = "UPDATE_EVENT";
 export const GET_TASKS = "GET_TASKS";
 export const DELETE_TASK = "DELETE_TASK";
 export const ADD_TASK = "ADD_TASK";
-
-// export const GET_BILLS = "GET_BILLS";
-// export const DELETE_BILL = "DELETE_BILL";
-// export const ADD_BILL = "ADD_BILL";
+export const UPDATE_TASK = "UPDATE_TASK";
 
 export const GET_ERRORS = "GET_ERRORS";
 

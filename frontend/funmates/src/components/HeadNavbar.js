@@ -1,138 +1,3 @@
-// import React, { Component } from "react";
-// import { NavLink } from "react-router-dom";
-// import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
-
-// class HeadNavbar extends Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.toggle = this.toggle.bind(this);
-//     this.state = {
-//       isOpen: false
-//     };
-//   }
-//   toggle() {
-//     this.setState({
-//       isOpen: !this.state.isOpen
-//     });
-//   }
-
-//   static propTypes = {
-//     auth: PropTypes.object.isRequired,
-//     logout: PropTypes.func.isRequired
-//   };
-//   render() {
-//     const { isAuthenticated, user } = this.props.auth;
-
-//   const authLinks  = (
-//     <Nav className="ml-auto" navbar>
-//     <NavItem>
-//       <NavLink >
-//         <Button>
-//           logout
-//         </Button>
-//       </NavLink>
-//       </NavItem>
-//       </Nav>
-//   );
-
-//      const guestLinks = (
-//        <Nav className="ml-auto" navbar>
-//       <NavItem>
-//         <NavLink to ='/login'>
-//            Login
-//         </NavLink>
-//         </NavItem>
-//         <NavItem>
-//          <NavLink to='/register'>
-//            Register
-//          </NavLink>
-//          </NavItem>
-//          </Nav>
-
-//      )
-
-//     return (
-//       <div>
-//         <Navbar color="primary" light expand="sm">
-//           <NavbarToggler onClick={this.toggle} />
-//           <Collapse isOpen={this.state.isOpen} navbar>
-//             <Nav className="ml-auto" navbar>
-//               <NavItem>
-//                 <NavLink
-//                   exact
-//                   to="/login"
-//                   style={{
-//                     color: "white",
-//                     textAlign: "center",
-//                     marginRight: "40px"
-//                   }}
-//                 >
-//                   Login
-//                 </Nav>
-//               </NavItem>
-//               <NavItem>
-//                 <NavLink
-//                   to="/register"
-//                   exact
-//                   style={{
-//                     color: "white",
-//                     textAlign: "center",
-//                     marginRight: "40px"
-//                   }}
-//                 >
-//                   Register
-//                 </NavLink>
-//               </NavItem>
-//               {/* <NavItem>
-//                 <NavLink
-//                   to="/tasks"
-//                   exact
-//                   style={{
-//                     color: "white",
-//                     textAlign: "center",
-//                     marginRight: "40px"
-//                   }}
-//                 >
-//                   Tasks
-//                 </NavLink>
-//               </NavItem>
-//               <NavItem>
-//                 <NavLink
-//                   to="/roommates"
-//                   exact
-//                   style={{
-//                     color: "white",
-//                     textAlign: "center",
-//                     marginRight: "40px"
-//                   }}
-//                 >
-//                   Roommate
-//                 </NavLink>
-//               </NavItem>
-//               <NavItem>
-//                 <NavLink
-//                   to="/bills"
-//                   exact
-//                   style={{
-//                     color: "white",
-//                     textAlign: "center",
-//                     marginRight: "40px"
-//                   }}
-//                 >
-//                   Bills
-//                 </NavLink>
-//               </NavItem> */}
-//             </NavItem>
-//           </Collapse>
-//         </Navbar>
-//       </div>
-//     );
-//   }
-// }
-
-// export default HeadNavbar;
-
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -149,7 +14,7 @@ export class HeadNavbar extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
-    const authLinks = (
+    const authorizedLinks = (
       <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
         <span className="navbar-text mr-3">
           <strong>{user ? `Welcome ${user.username}` : ""}</strong>
@@ -157,7 +22,8 @@ export class HeadNavbar extends Component {
         <li className="nav-item">
           <Button
             onClick={this.props.logout}
-            className="nav-link btn btn-info btn-sm text-light"
+            className="nav-link btn btn-sm btn-secondary"
+            style={{ color: "white" }}
           >
             Logout
           </Button>
@@ -165,25 +31,13 @@ export class HeadNavbar extends Component {
       </ul>
     );
 
-    const guestLinks = (
-      // <nav>
-      //   <div className="hamburger">
-      //     <div className="line" />
-      //     <div className="line" />
-      //   </div>
+    const unauthorizedLinks = (
       <ul className="navbar-nav ml-auto mt-2 mt-lg-0 nav-link">
+        <li className="nav-item" />
         <li className="nav-item">
-          {/* <Link style={{ color: "white" }} to="/register" className="nav-link">
-            Signup
-          </Link> */}
-        </li>
-        <li className="nav-item">
-          <Link style={{ color: "white" }} to="/login" className="nav-link">
-            Login
-          </Link>
+          <Link style={{ color: "white" }} to="/login" className="nav-link" />
         </li>
       </ul>
-      // </nav>
     );
 
     return (
@@ -202,12 +56,12 @@ export class HeadNavbar extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          {/* <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a className="navbar-brand" href="#">
-              Lead Manager
-            </a>
-          </div> */}
-          {isAuthenticated ? authLinks : guestLinks}
+          <div>
+            <p className="navbar-brand" style={{ color: "white" }}>
+              TaskCompanion
+            </p>
+          </div>
+          {isAuthenticated ? authorizedLinks : unauthorizedLinks}
         </div>
       </nav>
     );

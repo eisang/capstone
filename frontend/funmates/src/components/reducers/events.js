@@ -1,4 +1,3 @@
-// import { GET_EVENTS, DELETE_EVENT, ADD_EVENT} from "../actions/types.js";
 import {
   GET_EVENTS,
   DELETE_EVENT,
@@ -32,18 +31,8 @@ export default function(state = initialState, action) {
     case UPDATE_EVENT:
       return {
         ...state,
-        // events: state.events.map(event => event.id === action.payload)
         editEvent: action.payload
       };
-
-    // case UPDATE_EVENT:
-    //   return state.map(event => {
-    //     if (event.id === action.id) {
-    //       return {
-    //         ...state
-    //       };
-    //     } else return event;
-    //   });
 
     default:
       return state;

@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { login } from "./actions/auth";
 
 export class Login extends Component {
   state = {
     username: "",
     password: ""
-  };
-
-  static propTypes = {
-    login: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
   };
 
   onSubmit = e => {
@@ -28,7 +22,7 @@ export class Login extends Component {
     }
     const { username, password } = this.state;
     return (
-      <div className="col-md-4 m-auto">
+      <div className="col-md-5 m-auto">
         <div className="card card-body mt-5">
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
@@ -54,11 +48,7 @@ export class Login extends Component {
             </div>
 
             <div className="form-group">
-              <button
-                className="btn btn-sm btn-secondary"
-                type="submit"
-                // className="btn btn-secondary"
-              >
+              <button className="btn btn-sm btn-secondary" type="submit">
                 Login
               </button>
             </div>

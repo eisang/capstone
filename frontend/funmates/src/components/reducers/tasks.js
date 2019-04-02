@@ -1,4 +1,9 @@
-import { GET_TASKS, DELETE_TASK, ADD_TASK } from "../actions/actionTypes";
+import {
+  GET_TASKS,
+  DELETE_TASK,
+  ADD_TASK,
+  UPDATE_TASK
+} from "../actions/actionTypes";
 
 const initialState = {
   tasks: []
@@ -20,6 +25,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         tasks: [...state.tasks, action.payload]
+      };
+
+    case UPDATE_TASK:
+      return {
+        ...state,
+        editTask: action.payload
       };
 
     default:

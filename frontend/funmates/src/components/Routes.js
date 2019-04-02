@@ -6,6 +6,7 @@ import UtilityRoute from "./utilities/UtilityRoute";
 import Login from "./Login";
 import Register from "./Register";
 import EventEditForm from "./EventEditForm";
+import TaskEditForm from "./TaskEditForm";
 
 const BaseRouter = () => {
   return (
@@ -17,6 +18,7 @@ const BaseRouter = () => {
         <UtilityRoute path="/" exact component={TaskView} />
       </div>
       <UtilityRoute path="/events/:id/edit" exact component={EventEditForm} />
+      <UtilityRoute path="/tasks/:id/edit" exact component={TaskEditForm} />
       <Route path="/login" exact component={Login} />
       <Route path="/register" exact component={Register} />
     </div>

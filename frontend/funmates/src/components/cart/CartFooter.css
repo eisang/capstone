@@ -3,8 +3,8 @@
   position: fixed;
   width: 100vw;
   height: 350px;
-  top: 590px;
-  transform: skew(0deg, -5deg);
+  top: 610px;
+  transform: skew(0deg, -4deg);
 }
 
 div:hover {
@@ -12,15 +12,3 @@ div:hover {
   animation-duration: 4s;
   animation-iteration-count: ifinite;
 }
-
-/* @keyframes x {
-  0% {
-    transform: skew(0deg, -65deg);
-  }
-  50% {
-    transform: skew(0deg, -78deg);
-  }
-  1000% {
-    transform: skew(0deg, 1s0deg);
-  }
-} */

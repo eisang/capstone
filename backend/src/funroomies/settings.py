@@ -45,9 +45,7 @@ INSTALLED_APPS = [
     'knox',
     'managers'
 
-    # 'tasks',
-    # 'events',
-    # 'bills'
+
 
 
 ]
@@ -105,18 +103,6 @@ WSGI_APPLICATION = 'funroomies.wsgi.application'
 #     }
 # }
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('edmosesisang@gmail.com', ''),
-#         'USER': os.environ.get('edmosesisang@gmail.com', ''),
-#         'PASSWORD': os.environ.get('eddy', ''),
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-#     }
-
-# }
 
 DATABASES = {
     'default': {

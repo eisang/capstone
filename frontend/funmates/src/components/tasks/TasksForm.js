@@ -7,7 +7,7 @@ import { StaggeredMotion, spring } from "react-motion";
 export class TaskForms extends Component {
   state = {
     task_name: "",
-    // is_task_completed: "",
+    is_task_completed: "",
     task_location: "",
     date_to_complete: ""
   };
@@ -19,20 +19,20 @@ export class TaskForms extends Component {
 
     const {
       task_name,
-      // is_task_completed,
+      is_task_completed,
       task_location,
       date_to_complete
     } = this.state;
     const task = {
       task_name,
-      // is_task_completed,
+      is_task_completed,
       task_location,
       date_to_complete
     };
     this.props.addTask(task);
     this.setState({
       task_name: "",
-      // is_task_completed: "",
+      is_task_completed: "",
       task_location: "",
       date_to_complete: ""
     });

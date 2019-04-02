@@ -1,4 +1,3 @@
-// import * as actionTypes from './eventAction'
 import axios from "axios";
 import {
   GET_EVENTS,

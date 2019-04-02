@@ -82,7 +82,7 @@
 //   )(EventsList)
 // );
 
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getEvents, deleteEvent, updateEvent } from "../actions/events";
 import { Table, Button } from "reactstrap";
@@ -105,7 +105,7 @@ export class EventsList extends Component {
     }
 
     return (
-      <Fragment className="container">
+      <div className="container">
         <StaggeredMotion
           defaultStyles={[{ x: 250 }, { x: 250 }, { x: 250 }, { x: 200 }]}
           styles={prevStyles => [
@@ -177,7 +177,7 @@ export class EventsList extends Component {
             </nav>
           )}
         </StaggeredMotion>
-      </Fragment>
+      </div>
     );
   }
 }

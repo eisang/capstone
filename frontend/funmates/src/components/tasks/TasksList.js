@@ -1,90 +1,4 @@
-// import React, { Component, Fragment } from "react";
-// import { connect } from "react-redux";
-// import { getTasks, deleteTask, updateTask } from "../actions/tasks";
-// import { Table, Button } from "reactstrap";
-// import { withRouter } from "react-router-dom";
-
-// export class TasksList extends Component {
-//   state = {
-//     tasks: []
-//   };
-
-//   componentDidMount() {
-//     this.props.getTasks();
-//   }
-
-//   render() {
-//     console.log("props.inTask", this.props.tasks);
-//     return (
-//       <Fragment className="container">
-//         <Table
-//           style={{
-//             width: "540px",
-//             marginTop: "55px",
-//             right: "-95px",
-//             position: "relative"
-//           }}
-//         >
-//           <thead>
-//             <tr>
-//               <th>Task</th>
-//               <th>Location</th>
-//               <th>Completed </th>
-
-//               <th />
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {this.props.tasks.map(task => (
-//               <tr key={task.id}>
-//                 <td>{task.task_name}</td>
-//                 {/* <td>{"" + task.is_task_completed}</td> */}
-//                 <td>{task.task_location}</td>
-//                 <td>{task.date_to_complete}</td>
-//                 <td>
-//                   <span style={{ margin: "1px" }}>
-//                     <Button
-//                       onClick={this.props.deleteTask.bind(this, task.id)}
-//                       className="btn btn secondary btn-sm"
-//                     >
-//                       Delete
-//                     </Button>
-//                   </span>
-
-//                   <span style={{ margin: "15px" }}>
-//                     <Button
-//                       onClick={() =>
-//                         this.props.history.push(`/tasks/${task.id}/edit`)
-//                       }
-//                       // onClick={this.props.deleteTask.bind(this, task.id)}
-//                       className="btn  btn-sm"
-//                       style={{ backgroundColor: "#6eb19d", border: "0px" }}
-//                     >
-//                       Edit
-//                     </Button>
-//                   </span>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </Table>
-//       </Fragment>
-//     );
-//   }
-// }
-
-// const mapStateToProps = state => ({
-//   tasks: state.tasks.tasks
-// });
-
-// export default withRouter(
-//   connect(
-//     mapStateToProps,
-//     { getTasks, deleteTask, updateTask }
-//   )(TasksList)
-// );
-
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTasks, deleteTask, updateTask } from "../actions/tasks";
 import { Table, Button } from "reactstrap";
@@ -107,7 +21,7 @@ export class TasksList extends Component {
       clsName = "nav-container open";
     }
     return (
-      <Fragment className="container">
+      <div className="container">
         <StaggeredMotion
           defaultStyles={[{ x: 250 }, { x: 250 }, { x: 250 }, { x: 250 }]}
           styles={prevStyles => [
@@ -141,7 +55,7 @@ export class TasksList extends Component {
                   {this.props.tasks.map(task => (
                     <tr key={task.id}>
                       <td>{task.task_name}</td>
-                      {/* <td>{"" + task.is_task_completed}</td> */}
+                      <td>{"" + task.is_task_completed}</td>
                       <td>{task.task_location}</td>
                       <td>{task.date_to_complete}</td>
                       <td>
@@ -177,7 +91,7 @@ export class TasksList extends Component {
             </nav>
           )}
         </StaggeredMotion>
-      </Fragment>
+      </div>
     );
   }
 }

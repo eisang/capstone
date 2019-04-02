@@ -2,7 +2,6 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { updateTask } from "./actions/tasks";
-
 import { Button } from "reactstrap";
 
 let TaskEditForm = props => {
@@ -25,7 +24,7 @@ let TaskEditForm = props => {
               className="form-control"
               type="text"
               style={{ fontSize: "10px", marginTop: "-9px" }}
-              placeholder="Update with the  new task"
+              placeholder="Update with the new task"
             />
           </div>
           <div style={{ marginBottom: "20px" }}>

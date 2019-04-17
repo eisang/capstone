@@ -37,7 +37,7 @@ export class HeadNavbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
         <div className="container">
           <button
             className="navbar-toggler"
@@ -54,7 +54,7 @@ export class HeadNavbar extends Component {
           </button>
           <div>
             <p className="navbar-brand" style={{ color: "white" }}>
-              TaskCompanion
+              Commmons
             </p>
           </div>
           {isAuthenticated ? authorizedLinks : unauthorizedLinks}
